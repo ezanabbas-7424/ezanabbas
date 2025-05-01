@@ -1,0 +1,163 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f3f3f3;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px #00000044;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #0072ff;
+      margin-bottom: 15px;
+      border-left: 5px solid #00c6ff;
+      padding-left: 10px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .flex-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0072ff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav style="
+    background: #0072ff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  ">
+    <a href="homepage.html" style="color: white; text-decoration: none;">Home</a>
+    <a href="Portfolio.html" style="color: white; text-decoration: none;">Portfolio</a>
+    <a href="tools.html" style="color: white; text-decoration: none;">Tools</a>
+    <a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a>
+  </nav>
+
+
+  <header>
+    <img src="https://i.postimg.cc/7LbC8F6s/You-Cut-20250426-77794422.png" alt="My Picture" />
+    <h1>Ezan Abbas</h1>
+    <p>Web Developer | Creative Designer | Tech Enthusiast</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I am a passionate web developer skilled in HTML, CSS, JavaScript and design tools. I focus on creating beautiful and interactive web experiences.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <ul>
+        <li><strong>BS Computer Science</strong> – Virtual University of Pakistan</li>
+        <li><strong>Frontend Development</strong> – FreeCodeCamp / YouTube / Online Courses</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <div class="card flex-list">
+      <div><strong>Website Design</strong><br />Modern, responsive designs</div>
+      <div><strong>Frontend Development</strong><br />HTML, CSS, JS web apps</div>
+      <div><strong>UI/UX Consulting</strong><br />Clean and user-focused interfaces</div>
+      <div><strong>API Integration</strong><br />Connect to services like WhatsApp, GPT, etc.</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <ul>
+        <li><strong>3+ Years</strong> Freelance Web Design & Development</li>
+        <li><strong>100+ Projects</strong> Delivered with satisfaction</li>
+        <li><strong>Skilled In</strong> ChatGPT integration, Firebase, and more</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="languages">
+    <h2>Languages</h2>
+    <div class="card flex-list">
+      <div>English – Professional</div>
+      <div>Urdu – Fluent</div>
+      <div>Punjabi – Native</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Ezan Abbas | All Rights Reserved
+  </footer>
+
+</body>
+</html>

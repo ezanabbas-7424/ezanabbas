@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Ezan Abbas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      min-height: 100vh;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-toggle {
+      background-color: #fff;
+      color: #333;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 180px;
+    }
+
+    .nav-menu.show {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .nav-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .nav-menu a.active {
+      background-color: #00b894;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Contact Form */
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      margin: 100px auto 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 5px #00000055;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 1px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input:disabled,
+    textarea:disabled {
+      filter: blur(3px);
+      background: rgba(255, 255, 255, 0.1);
+      color: #999;
+    }
+
+    input:focus,
+    textarea:focus {
+      box-shadow: 0 0 5px #00ffae;
+      background: #ffffffdd;
+    }
+
+    input:hover,
+    textarea:hover {
+      transform: scale(1.01);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background: #00b894;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: #019875;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav style="
+    background: #0072ff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  ">
+    <a href="homepage.html" style="color: white; text-decoration: none;">Home</a>
+    <a href="portfolio.html" style="color: white; text-decoration: none;">Portfolio</a>
+    <a href="tools.html" style="color: white; text-decoration: none;">Tools</a>
+    <a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a>
+  </nav>
+
+  <div class="form-container">
+    <h1>Contact Me</h1>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="John Doe" required />
+
+      <label for="age">Age</label>
+      <input type="number" id="age" placeholder="25" disabled required />
+
+      <label for="education">Education</label>
+      <input type="text" id="education" placeholder="Bachelor's in Computer Science" disabled required />
+
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="Lahore" disabled required />
+
+      <label for="country">Country</label>
+      <input type="text" id="country" placeholder="Pakistan" disabled required />
+
+      <label for="skill">Skill</label>
+      <input type="text" id="skill" placeholder="Web Development" disabled required />
+
+      <label for="passion">Passion</label>
+      <input type="text" id="passion" placeholder="Creating Innovative Websites" disabled required />
+
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="I'd love to work with you!" rows="3" disabled required></textarea>
+
+      <button type="submit">Send on WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    // Navbar logic
+    const navMenu = document.getElementById("navMenu");
+
+    function toggleMenu() {
+      navMenu.classList.toggle("show");
+    }
+
+    // Hide nav on outside click
+    window.addEventListener("click", function (e) {
+      if (!e.target.closest(".nav-toggle") && !e.target.closest("#navMenu")) {
+        navMenu.classList.remove("show");
+      }
+    });
+
+    // Enable fields one by one
+    const fields = [
+      "name", "age", "education", "city",
+      "country", "skill", "passion", "message"
+    ];
+
+    fields.forEach((field, index) => {
+      if (index === 0) return;
+      document.getElementById(fields[index - 1]).addEventListener("input", () => {
+        document.getElementById(field).disabled = false;
+      });
+    });
+
+    // Form submit logic
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const values = fields.map(id => document.getElementById(id).value.trim());
+      if (values.some(val => val === "")) {
+        alert("Please fill all fields before submitting.");
+        return;
+      }
+
+      let message = `Hello Ezan Abbas! I just visited your website and here's my info:\n\n`;
+      fields.forEach((field, index) => {
+        let label = field.charAt(0).toUpperCase() + field.slice(1);
+        message += `*${label}*\n${values[index]}\n-----------------------------------\n`;
+      });
+
+      const encodedMsg = encodeURIComponent(message);
+      const phone = "923116128134";
+      const url = `https://wa.me/${phone}?text=${encodedMsg}`;
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
