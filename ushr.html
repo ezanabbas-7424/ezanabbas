@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ushr Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e8f5e9;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      background-color: #2e7d32;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      z-index: 999;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    .output {
+      background: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-left: 6px solid #2e7d32;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #1b5e20;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="container">
+    <h2>Ushr Calculator</h2>
+
+    <form id="ushrForm">
+      <label>Farmer Name:</label>
+      <input type="text" id="farmerName" required>
+
+      <label>Total Wheat Harvested (kg):</label>
+      <input type="number" id="harvested" required>
+
+      <label>Irrigation Type:</label>
+      <select id="irrigation" required>
+        <option value="">-- Select --</option>
+        <option value="10">Natural (Rain, River)</option>
+        <option value="5">Artificial (Tube Well, Paid Water)</option>
+      </select>
+
+      <label>Market Price per kg (PKR):</label>
+      <input type="number" id="price" required>
+
+      <button type="button" onclick="calculateUshr()">Calculate Ushr</button>
+    </form>
+
+    <div class="output" id="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    function calculateUshr() {
+      const name = document.getElementById('farmerName').value.trim();
+      const crop = parseFloat(document.getElementById('harvested').value);
+      const price = parseFloat(document.getElementById('price').value);
+      const irrigation = document.getElementById('irrigation').value;
+
+      if (!name || isNaN(crop) || isNaN(price) || !irrigation) {
+        alert("Please fill in all fields correctly.");
+        return;
+      }
+
+      const rate = parseFloat(irrigation);
+      const irrigationText = rate === 10 ? "Natural (Rain, River)" : "Artificial (Tube Well, Paid Water)";
+      const ushrKg = (crop * rate) / 100;
+      const ushrRs = ushrKg * price;
+
+      const hadith = "“Take from their wealth so that you might purify and sanctify them.” (Qur'an 9:103)";
+      const message = `
+        <p>Assalam O Alaikum! <span class="highlight">${name}</span>.</p>
+        <p>You have harvested <span class="highlight">${crop} kg</span> of wheat using <span class="highlight">${irrigationText}</span>.</p>
+        <p>According to Islamic law, you are required to pay <span class="highlight">${rate}%</span> Ushr on your produce.</p>
+        <p><em>${hadith}</em></p>
+        <p>Your calculated Ushr is given below 👇</p>
+        <p><strong>Distribute this amount among the poor, needy, or those eligible for Zakat within your local community. You may give the wheat directly or its cash value.</strong></p>
+        <p class="highlight">Total Ushr in Wheat: ${ushrKg.toFixed(2)} kg</p>
+        <p class="highlight">Total Ushr in Rupees: Rs. ${ushrRs.toFixed(2)}</p>
+      `;
+
+      document.getElementById('result').innerHTML = message;
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
